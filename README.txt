@@ -56,9 +56,16 @@ Want to help us improve Food Hero?
 - Make your changes
 - Submit a pull request with your improvements
 
+Team
+-----------
+
+1. Shiven Bhudia
+2. Candy Mzungu
+3. Yug Vekaria
+
 CONTACT
 --------
-Created by: [Your Team or Founder Name]
+
 Email: support@foodhero.org
 Website: https://food-hero-iota.vercel.app/  
 Phone: +123-456-7890
