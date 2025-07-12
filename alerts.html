@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alerts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f1f1f1;
+      padding: 40px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #1d3557;
+      margin-bottom: 30px;
+    }
+    .alert {
+      border-left: 5px solid blue;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background: #fff3f3;
+      border-radius: 8px;
+    }
+    .alert strong {
+      color: blue;
+    }
+    .timestamp {
+      color: #888;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>📋 Sent Delivery Alerts</h2>
+    <div id="alertsContainer"></div>
+  </div>
+
+  <script>
+    const alertsContainer = document.getElementById('alertsContainer');
+    const alerts = JSON.parse(localStorage.getItem('alerts')) || [];
+
+    if (alerts.length === 0) {
+      alertsContainer.innerHTML = "<p>No alerts sent yet.</p>";
+    } else {
+      alerts.reverse().forEach(alert => {
+        const div = document.createElement('div');
+        div.classList.add('alert');
+        div.innerHTML = `
+          <strong>${alert.name}</strong> (${alert.contact}) <br>
+          Order ID: ${alert.orderId} <br>
+          Message: ${alert.message}
+          <div class="timestamp">🕒 Sent: ${alert.timestamp}</div>
+        `;
+        alertsContainer.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
